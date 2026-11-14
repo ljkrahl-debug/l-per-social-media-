@@ -3,7 +3,16 @@
 **Inhaber:** Thomas Loeper · Wallstraße 4, 52538 Gangelt (Kreis Heinsberg, NRW)
 **Web:** https://www.euregio-houseandhome.de
 **Tel.:** 02454 9741363 · **Mobil:** +49 176 30166433 · **Mail:** info@euregio-houseandhome.de
-**Status:** Akquise – 2 Beispiel-Posts erstellt (November 2026)
+**Status:** Akquise – Beispiel-Posts erstellt (November 2026)
+
+| Post | Thema | Design |
+|---|---|---|
+| 01 | Vorher/Nachher Gabionen | Basis |
+| 02 | Garten winterfest machen (November) | editorial ✔ ausgewählt |
+| 03 | Neue Ideen. Neue Räume. – Leistungen innen | editorial |
+| 04 | Projekt: Neuer Boden (Bauphase → fertig) | editorial |
+
+**Schwerpunkt laut Kunde:** Innenräume (Renovierung, Trockenbau & Boden, Küchen-/Möbelmontage, Entrümpelung) sind die wichtigeren Themen.
 
 ## Was er macht
 
@@ -21,7 +30,8 @@ Ablauf: Vorhaben besprechen (Fotos + Maße) → Umfang & Angebot klären → Ter
 
 - **Logo:** Haus aus den Buchstaben „TL“ in Grün/Grau/Schwarz, Claim „Alles rund ums Haus“ (`assets/logo.png`, freigestellt `logo-transparent.png`, weiß `logo-weiss.png`)
 - **Farben (von der Website):** Grün `#40774f` · Dunkelgrün `#346340` · Hellgrün `#60a476` · Schwarz `#231f20` · Grau `#7a7978` · Mint `#f1f5f1`
-- **Schrift in den Posts:** Inter / Inter Display Black (ähnlich wie die fette Logo-Schrift)
+- **Schrift in den Posts:** Inter Display Black (Headlines) + Fraunces Italic (Akzentwörter) + Inter (Fließtext)
+- **Standard-Design:** Theme `editorial` – Papierton `#f3efe6`, Waldgrün `#1c3324`, Salbei `#b9cfbb`, Fotos im Bogenrahmen
 - **Ansprache:** „Sie“, ruhig, bodenständig, kurze Sätze. Website-Claims: „Ihr Zuhause. Ihr Garten. In guten Händen.“ · „Wir kümmern uns. Sie genießen Ihr Zuhause.“ · „Draußen schön. Drinnen wohnlich.“
 
 ## Ordner
@@ -33,8 +43,9 @@ Ablauf: Vorhaben besprechen (Fotos + Maße) → Umfang & Angebot klären → Ter
 
 ## Weitere Post-Ideen
 
-- Gäste-WC: Bauphase → fertig (Fotos `wc_bau` / `wc_fertig`)
-- Bodenverlegung: Fliesen mit Nivelliersystem → fertige Küche (`boden_bau` / `boden_fertig`)
+- Gäste-WC als Ergebnis zeigen – ACHTUNG: `wc_bau` und `wc_fertig` sind verschiedene Räume, also kein Vorher/Nachher!
+- Küchenmontage im Detail (vorher bei Thomas Baustellenfotos anfragen)
+- Entrümpelung: Vorher/Nachher Keller oder Garage (Fotos fehlen noch)
 - „Ein Ansprechpartner statt fünf Handwerker“ – Leistungsübersicht als Karussell
 - Frühjahr: Rasen-Start & regelmäßige Pflege im Turnus
 - Vorstellung Thomas Loeper (Gesicht zeigen schafft Vertrauen – Foto nötig)

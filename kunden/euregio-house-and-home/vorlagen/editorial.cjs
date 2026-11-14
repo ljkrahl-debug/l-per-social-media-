@@ -69,6 +69,22 @@ div{text-wrap:pretty}
       <circle cx="50" cy="50" r="5"/><path d="M50 41l8 4.5v9L50 59l-8-4.5v-9Z"/></svg>`;
   };
 
+  const vanArt = (size, color, sw = 2.2) => `
+    <svg viewBox="0 0 120 80" width="${size}" height="${size * 2 / 3}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="18" width="62" height="40" rx="3"/>
+      <path d="M70 28h20l16 16v14H70Z"/><path d="M75 33h13l10 10H75Z"/>
+      <circle cx="28" cy="60" r="8" fill="#26422f"/><circle cx="90" cy="60" r="8" fill="#26422f"/>
+      <path d="M2 70h116"/><path d="M18 30h18v14H18Z"/><path d="M40 26h20v18H40Z"/><path d="M27 30v5M50 26v6"/>
+    </svg>`;
+  const boxArt = (size, color, sw = 3) => `
+    <svg viewBox="0 0 100 100" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linejoin="round">
+      <path d="M50 10 88 30v40L50 90 12 70V30Z"/><path d="M12 30l38 20 38-20M50 50v40"/><path d="M31 20l38 20"/>
+    </svg>`;
+  const ARTS = {
+    snow: { main: (c) => snowArt(380, c, 1.6), deco: (sz, c, sw) => snowArt(sz, c, sw) },
+    van: { main: (c) => vanArt(560, c, 1.5), deco: (sz, c) => boxArt(sz * .8, c, 3.5) },
+  };
+
   const types = {
     cover: (s, i, n) => {
       const ring = (txt) => `
@@ -117,11 +133,11 @@ div{text-wrap:pretty}
       ${header(C.cream, `<b style="color:${C.sage}">${s.num}</b>&nbsp;/&nbsp;${s.of}`)}
       <div class="abs" style="left:80px;top:150px;width:920px;height:600px;${archR};overflow:hidden;background:linear-gradient(180deg,#3b5f46 0%,#26422f 100%);box-shadow:inset 0 0 0 1.5px rgba(246,241,230,.18)">
         ${s.img ? `<div class="ph" style="inset:0;background-image:url('${asset(s.img)}');background-position:${s.pos || 'center'}"></div><div class="warm"></div>` : `
-        <div class="abs" style="left:50%;top:52%;transform:translate(-50%,-50%)">${snowArt(380, C.cream, 1.6)}</div>
-        <div class="abs" style="left:110px;top:150px;opacity:.45">${snowArt(90, C.sage, 3)}</div>
-        <div class="abs" style="right:120px;top:120px;opacity:.35">${snowArt(60, C.sage, 3.5)}</div>
-        <div class="abs" style="right:90px;bottom:90px;opacity:.4">${snowArt(110, C.sage, 2.6)}</div>
-        <div class="abs" style="left:70px;bottom:120px;opacity:.3">${snowArt(54, C.sage, 4)}</div>`}
+        <div class="abs" style="left:50%;top:54%;transform:translate(-50%,-50%)">${ARTS[s.art || 'snow'].main(C.cream)}</div>
+        <div class="abs" style="left:110px;top:150px;opacity:.45">${ARTS[s.art || 'snow'].deco(90, C.sage, 3)}</div>
+        <div class="abs" style="right:120px;top:120px;opacity:.35">${ARTS[s.art || 'snow'].deco(60, C.sage, 3.5)}</div>
+        <div class="abs" style="right:90px;bottom:90px;opacity:.4">${ARTS[s.art || 'snow'].deco(110, C.sage, 2.6)}</div>
+        <div class="abs" style="left:70px;bottom:120px;opacity:.3">${ARTS[s.art || 'snow'].deco(54, C.sage, 4)}</div>`}
       </div>
       ${badge(s.num, C.cream, C.forest, C.forest)}
       ${textBlock(s, C.cream, 'rgba(246,241,230,.82)', C.sage)}
@@ -129,11 +145,59 @@ div{text-wrap:pretty}
       ${s.note ? `<div class="abs" style="left:80px;right:80px;bottom:30px;font-size:17px;color:${C.cream};opacity:.5">${s.note}</div>` : ''}
       <div class="grain light"></div>`,
 
+    coverCollage: (s, i, n) => {
+      const w = (920 - 2 * 22) / 3;
+      return `
+      ${header(C.ink, s.headerRight || '')}
+      <div class="abs" style="left:80px;right:80px;top:178px">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:30px">
+          <div style="width:64px;height:2px;background:${C.green}"></div>
+          <div class="label" style="color:${C.green}">${s.kicker}</div>
+        </div>
+        <div class="h" style="font-size:128px;line-height:.92">${s.title.replace(/<em>/g, `<em style="color:${C.green}">`)}</div>
+        <div style="font-size:33px;line-height:1.4;color:${C.inkSoft};margin-top:30px;max-width:820px">${s.sub}</div>
+      </div>
+      ${s.imgs.map(([img, label, pos], k) => `
+        <div class="abs" style="left:${80 + k * (w + 22)}px;bottom:150px;width:${w}px;height:${s.archH || 520}px;border-radius:${w / 2}px ${w / 2}px 16px 16px;overflow:hidden">
+          <div class="ph" style="inset:0;background-image:url('${asset(img)}');background-position:${pos || 'center'}"></div><div class="warm"></div>
+        </div>
+        <div class="abs label" style="left:${80 + k * (w + 22)}px;width:${w}px;bottom:96px;text-align:center;font-size:16px;color:${C.ink}">
+          <span style="color:${C.green};font-family:'Fraunces';font-style:italic;font-weight:500;letter-spacing:0;font-size:22px;text-transform:none">0${k + 1}</span>&nbsp;&nbsp;${label}
+        </div>`).join('')}
+      <div class="grain"></div>`;
+    },
+
+    baCover: (s, i, n) => {
+      const pane = (img, pos, label, left, bg, fg) => `
+        <div class="abs" style="left:${left}px;top:${s.archTop || 560}px;width:449px;height:${s.archH || 620}px;border-radius:224px 224px 18px 18px;overflow:hidden">
+          <div class="ph" style="inset:0;background-image:url('${asset(img)}');background-position:${pos || 'center'}"></div><div class="warm"></div>
+        </div>
+        <div class="abs label" style="left:${left}px;width:449px;top:${(s.archTop || 560) + (s.archH || 620) + 26}px;text-align:center;font-size:17px;color:${fg}">
+          <span style="display:inline-block;padding:10px 20px;border-radius:999px;background:${bg}">${label}</span>
+        </div>`;
+      return `
+      <div class="abs" style="inset:0;background:radial-gradient(110% 70% at 50% 10%,${C.forest2} 0%,${C.forest} 60%,#14261a 100%)"></div>
+      ${header(C.cream, s.headerRight || '')}
+      <div class="abs" style="left:80px;right:80px;top:178px;color:${C.cream}">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:30px">
+          <div style="width:64px;height:2px;background:${C.sage}"></div>
+          <div class="label" style="color:${C.sage}">${s.kicker}</div>
+        </div>
+        <div class="h" style="font-size:${s.titleSize || 106}px;line-height:.92">${s.title.replace(/<em>/g, `<em style="color:${C.sage}">`)}</div>
+      </div>
+      ${pane(s.before, s.beforePos, s.beforeLabel || 'Vorher', 80, 'rgba(246,241,230,.14)', C.cream)}
+      ${pane(s.after, s.afterPos, s.afterLabel || 'Nachher', 551, C.cream, C.forest)}
+      <div class="abs" style="left:${540 - 46}px;top:${(s.archTop || 560) + (s.archH || 620) / 2 - 46}px;width:92px;height:92px;border-radius:50%;background:${C.cream};border:8px solid ${C.forest};display:flex;align-items:center;justify-content:center;z-index:4">
+        <svg viewBox="0 0 24 24" width="34" height="34"><path d="M4 12h15M13 5l7 7-7 7" stroke="${C.forest}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="grain light"></div>`;
+    },
+
     cta: (s, i, n) => {
       const check = `<svg viewBox="0 0 32 32" width="40" height="40"><circle cx="16" cy="16" r="15" fill="none" stroke="${C.sage}" stroke-width="1.6"/><path d="M9.5 16.5l4.2 4.2 8.8-9.2" stroke="${C.cream}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
       return `
       <div class="abs" style="inset:0;background:radial-gradient(120% 80% at 85% 0%,${C.forest2} 0%,${C.forest} 55%,#14261a 100%)"></div>
-      ${header(C.cream, 'Wir kümmern uns')}
+      ${header(C.cream, s.headerRight || 'Wir kümmern uns')}
       <div class="abs" style="left:80px;right:80px;top:124px;bottom:356px;color:${C.cream};display:flex;flex-direction:column;justify-content:center">
         <div class="h" style="font-size:112px">${s.title.replace(/<em>/g, `<em style="color:${C.sage}">`)}</div>
         <div style="font-size:33px;line-height:1.42;margin-top:34px;opacity:.9;max-width:860px">${s.sub}</div>
