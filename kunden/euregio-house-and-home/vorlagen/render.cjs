@@ -2,6 +2,7 @@
 // Aufruf:  node vorlagen/render.cjs            (alle Posts)
 //          node vorlagen/render.cjs 01         (nur Posts, deren Ordner mit "01" beginnt)
 // Jeder Post liegt in posts/<ordner>/post.cjs und exportiert { slides: [...] }.
+// Optional: { theme: 'editorial' } nutzt vorlagen/editorial.cjs statt der Basis-Vorlage.
 
 const fs = require('fs');
 const path = require('path');
@@ -137,7 +138,7 @@ const T = {
     </div>`,
 };
 
-const page = (inner) => `<!doctype html><html><head><meta charset="utf-8"><style>${CSS}</style></head><body>${inner}</body></html>`;
+const page = (inner, css = CSS) => `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${inner}</body></html>`;
 
 (async () => {
   const filter = process.argv[2] || '';
@@ -147,11 +148,12 @@ const page = (inner) => `<!doctype html><html><head><meta charset="utf-8"><style
   const pg = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   for (const d of posts) {
     const dir = path.join(postsDir, d);
-    const { slides } = require(path.join(dir, 'post.cjs'));
+    const { slides, theme } = require(path.join(dir, 'post.cjs'));
+    const th = theme ? require(`./${theme}.cjs`)({ asset, BRAND, W, H }) : { css: CSS, types: T };
     const tmp = path.join(dir, '.tmp.html');
     for (let k = 0; k < slides.length; k++) {
       const s = slides[k];
-      fs.writeFileSync(tmp, page(T[s.type](s, k + 1, slides.length)));
+      fs.writeFileSync(tmp, page(th.types[s.type](s, k + 1, slides.length), th.css));
       await pg.goto('file://' + tmp);
       await pg.evaluate(() => document.fonts.ready);
       await pg.waitForTimeout(150);

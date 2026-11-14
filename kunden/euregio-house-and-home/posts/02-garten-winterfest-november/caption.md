@@ -1,6 +1,6 @@
 # Post 2 – Garten winterfest machen (November-Checkliste)
 
-**Format:** Instagram-/Facebook-Karussell, 6 Slides, 1080 × 1350 (4:5)
+**Format:** Instagram-/Facebook-Karussell, 6 Slides, 1080 × 1350 (4:5) · Design: Theme „editorial“ (v2)
 **Ziel:** hilfreicher Saison-Content (wird gespeichert & geteilt), Gartenpflege + Winterdienst bewerben
 **Timing:** jetzt im November posten
 **Bilder:** eigene Projektfotos von der Website (Collage „Gartenpflege“ + Vorgarten)
@@ -17,10 +17,10 @@ Jetzt im November lohnt sich ein letzter Einsatz – damit im Frühjahr alles wi
 Von Oktober bis Ende Februar sind auch kräftigere Rückschnitte erlaubt. Am besten an frostfreien Tagen.
 
 02 🍂 Laub runter vom Rasen
-Nasses Laub nimmt dem Rasen Licht und Luft. Letzter Schnitt auf ca. 4–5 cm.
+Nasses Laub nimmt dem Rasen Licht und Luft. Letzter Schnitt auf ca. 4–5 cm – das Laub kommt als Frostschutz aufs Beet.
 
-03 🌱 Beete mulchen
-Rindenmulch schützt Boden und Wurzeln vor Frost und hält das Unkraut klein.
+03 🌱 Beete vor Frost schützen
+Eine Schicht Rindenmulch (ca. 5 cm) schützt Boden und Wurzeln und hält das Unkraut klein.
 
 04 ❄️ Winterdienst klären
 Bei Schnee und Glätte gilt für Gehwege die Räum- und Streupflicht – auch wenn Sie nicht zu Hause sind. Lieber jetzt regeln als beim ersten Schnee.

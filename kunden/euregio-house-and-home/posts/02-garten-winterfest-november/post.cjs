@@ -1,49 +1,47 @@
 // Post 2: Saisonaler Ratgeber – Garten winterfest machen (November)
-const snowflake = (size, color = '#fff') => `
-<svg viewBox="0 0 100 100" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round">
-  ${[0, 60, 120].map(r => `<g transform="rotate(${r} 50 50)">
-    <path d="M50 6v88"/><path d="M50 22l-10-10M50 22l10-10M50 78l-10 10M50 78l10 10"/>
-  </g>`).join('')}
-</svg>`;
-
+// Theme "editorial": Papier + Waldgrün, Bogen-Fotos, Fraunces-Akzente.
 module.exports = {
+  theme: 'editorial',
   slides: [
     {
-      type: 'cover', img: 'fotos/vorgarten_hochformat.jpg', pos: 'center 40%',
-      kicker: 'GARTEN-CHECKLISTE NOVEMBER',
-      title: 'Garten winter&shy;fest machen.',
-      sub: '4 Dinge, die jetzt zählen – damit im Frühjahr alles wieder grünt.',
+      type: 'cover', img: 'fotos/vorgarten_hochformat.jpg', pos: 'center 30%',
+      badge: 'JETZT SPEICHERN · CHECKLISTE · ',
+      kicker: 'November-Checkliste',
+      title: 'Garten<br><em>winterfest</em><br>machen.',
+      sub: '4 Handgriffe, bevor der Frost kommt – damit im Frühjahr alles wieder grünt.',
     },
     {
-      type: 'photoPanel', img: 'fotos/hecke_1.jpg', pos: 'center 45%', photoH: 780,
-      num: '01', tag: 'RÜCKSCHNITT',
-      title: 'Hecken & Gehölze kräftig zurückschneiden.',
-      body: 'Von Oktober bis Ende Februar sind auch stärkere Rückschnitte erlaubt. Am besten an frostfreien Tagen – und den Grünschnitt direkt entsorgen.',
+      type: 'tip', num: '01', of: '04', tag: 'Rückschnitt',
+      img: 'fotos/hecke_1.jpg', pos: 'center 40%',
+      title: 'Hecken & Gehölze <em>zurück­schneiden.</em>',
+      body: 'Zwischen Oktober und Februar sind auch kräftige Rückschnitte erlaubt. Den Grünschnitt am besten gleich mitnehmen.',
+      meta: [['Erlaubt', '1. Okt. – 28. Feb.'], ['Profi-Tipp', 'Nur bei frostfreiem Wetter']],
     },
     {
-      type: 'photoPanel', img: 'fotos/hecke_2.jpg', pos: 'center 70%', photoH: 780,
-      num: '02', tag: 'RASEN',
-      title: 'Laub runter vom Rasen.',
-      body: 'Nasses Laub nimmt dem Rasen Licht und Luft – es drohen Fäulnis und kahle Stellen. Letzter Schnitt auf ca. 4–5 cm, sobald er nicht mehr wächst.',
+      type: 'tip', num: '02', of: '04', tag: 'Rasen',
+      img: 'fotos/hecke_2.jpg', pos: 'center 75%',
+      title: 'Laub <em>runter</em><br>vom Rasen.',
+      body: 'Nasses Laub nimmt dem Rasen Licht und Luft – im Frühjahr drohen Fäulnis und kahle Stellen.',
+      meta: [['Letzter Schnitt', 'Auf 4–5 cm kürzen'], ['Das Laub', 'Aufs Beet als Frostschutz']],
     },
     {
-      type: 'photoPanel', img: 'fotos/beet_2.jpg', pos: 'center 60%', photoH: 780,
-      num: '03', tag: 'BEETE',
-      title: 'Beete mulchen.',
-      body: 'Eine Schicht Rindenmulch schützt Boden und Wurzeln vor Frost – und hält das Unkraut im Frühjahr klein.',
+      type: 'tip', num: '03', of: '04', tag: 'Beete',
+      img: 'fotos/beet_2.jpg', pos: 'center 65%',
+      title: 'Beete vor Frost<br><em>schützen.</em>',
+      body: 'Eine Schicht Rindenmulch hält Frost von den Wurzeln fern – und das Unkraut im Frühjahr klein.',
+      meta: [['Schichtdicke', 'Etwa 5 cm'], ['Wann', 'Nach dem Rückschnitt']],
     },
     {
-      type: 'graphic', icon: snowflake,
-      num: '04', tag: 'WINTERDIENST',
-      title: 'Winterdienst jetzt klären – nicht beim ersten Schnee.',
-      body: 'Bei Schnee und Glätte müssen Gehwege geräumt und gestreut werden – auch wenn Sie verreist sind. Wer das vorher regelt, hat seine Ruhe.',
-      note: 'Details regelt die Satzung Ihrer Gemeinde.',
+      type: 'tipDark', num: '04', of: '04', tag: 'Winterdienst',
+      title: 'Winterdienst<br><em>jetzt</em> klären.',
+      body: 'Bei Schnee und Glätte müssen Gehwege geräumt und gestreut werden – auch wenn Sie verreist sind.',
+      meta: [['Wann', 'Vor dem ersten Schnee'], ['Pflichten', 'Laut Gemeindesatzung']],
     },
     {
       type: 'cta',
-      title: 'Keine Zeit für den Garten?',
-      sub: 'Wir machen das – einmalig oder regelmäßig über die Saison.',
-      steps: ['Fotos vom Garten schicken', 'Umfang & Angebot abstimmen', 'Termin – wetterabhängig geplant'],
+      title: 'Keine Zeit?<br><em>Wir machen das.</em>',
+      sub: 'Einmalig oder regelmäßig über die Saison – rund ums Haus, in der Euregio.',
+      services: ['Hecken- & Rückschnitt', 'Grünschnittabfuhr', 'Rasen- & Grünpflege', 'Winterdienst auf Anfrage'],
     },
   ],
 };
